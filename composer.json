@@ -1,0 +1,27 @@
+{
+  "name": "philippe-jung/paginator",
+  "description": "A basic paginator",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Philippe Jung"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Paginator\\": "src/Paginator/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Paginator\\Test\\": "test/Paginator/"
+    }
+  }
+}
