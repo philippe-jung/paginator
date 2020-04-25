@@ -27,7 +27,7 @@ Simply edit your composer.json file and add the following:
     }
 ],
 "require": {
-    "philippe-jung/paginator": "master"
+    "philippe-jung/paginator": "dev-master"
 }
 ```
 
