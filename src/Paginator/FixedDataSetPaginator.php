@@ -45,4 +45,13 @@ class FixedDataSetPaginator extends AbstractPaginator {
 
     return $return;
   }
+
+  /**
+   * @param int $pageIndex
+   * @return int
+   */
+  public function getElementsCountForPage(int $pageIndex): int {
+    return count($this->getElementsForPage($pageIndex));
+  }
+
 }

@@ -4,13 +4,13 @@
 namespace Paginator\Test;
 
 
-use Paginator\DynamicDataSetPaginator;
 use Paginator\PaginatorInterface;
+use Paginator\Test\Example\RandomPaginator;
 
 class DynamicDataSetPaginatorTest extends AbstractTest {
 
   public function getPaginator(): PaginatorInterface {
-    return new DynamicDataSetPaginator(1, 10);
+    return new RandomPaginator(1, 10);
   }
 
 }

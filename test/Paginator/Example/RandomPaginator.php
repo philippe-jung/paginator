@@ -1,10 +1,10 @@
 <?php
 
+namespace Paginator\Test\Example;
 
-namespace Paginator;
+use Paginator\AbstractDynamicDataSetPaginator;
 
-
-class DynamicDataSetPaginator extends AbstractPaginator {
+class RandomPaginator extends AbstractDynamicDataSetPaginator {
 
   /**
    * @param int $pageIndex

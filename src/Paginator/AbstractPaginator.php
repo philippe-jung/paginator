@@ -47,14 +47,6 @@ abstract class AbstractPaginator implements PaginatorInterface {
 
   /**
    * @param int $pageIndex
-   * @return int
-   */
-  public function getElementsCountForPage(int $pageIndex): int {
-    return count($this->getElementsForPage($pageIndex));
-  }
-
-  /**
-   * @param int $pageIndex
    */
   public function setCurrentPageIndex(int $pageIndex): void {
     $this->currentPageIndex = $pageIndex;
