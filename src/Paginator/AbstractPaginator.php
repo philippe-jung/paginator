@@ -1,12 +1,10 @@
 <?php
 
 
-namespace Paginator\Test\Example;
+namespace Paginator;
 
 
-use Paginator\PaginatorInterface;
-
-class GreekAlphabetPaginator implements PaginatorInterface {
+abstract class AbstractPaginator implements PaginatorInterface {
 
   /**
    * @var int
@@ -20,35 +18,6 @@ class GreekAlphabetPaginator implements PaginatorInterface {
    * @var int
    */
   protected $totalElementsCount;
-  /**
-   * @var array
-   */
-  protected $elements = [
-    'Alpha',
-    'Beta',
-    'Gamma',
-    'Delta',
-    'Epsilon',
-    'Zeta',
-    'Eta',
-    'Theta',
-    'Iota',
-    'Kappa',
-    'Lambda',
-    'Mu',
-    'Nu',
-    'Xi',
-    'Omicron',
-    'Pi',
-    'Rho',
-    'Sigma',
-    'Tau',
-    'Upsilon',
-    'Phi',
-    'Chi',
-    'Psi',
-    'Omega',
-  ];
 
   /**
    * ExamplePaginator constructor.
@@ -56,14 +25,7 @@ class GreekAlphabetPaginator implements PaginatorInterface {
    * @param int $totalElementsCount
    * @param int $startPageIndex
    */
-  public function __construct(int $elementsPerPage, int $totalElementsCount = null, int $startPageIndex = 0) {
-    $totalLetters = count($this->elements);
-    if (is_null($totalElementsCount)) {
-      // Default to all letters
-      $totalElementsCount = $totalLetters;
-    } elseif ($totalElementsCount > $totalLetters) {
-      throw new \Exception('You can only paginate up to ' . $totalLetters . ' letters.');
-    }
+  public function __construct(int $elementsPerPage, int $totalElementsCount, int $startPageIndex = 0) {
     $this->setElementsPerPage($elementsPerPage);
     $this->setTotalElementsCount($totalElementsCount);
     $this->setCurrentPageIndex($startPageIndex);
@@ -89,26 +51,6 @@ class GreekAlphabetPaginator implements PaginatorInterface {
    */
   public function getElementsCountForPage(int $pageIndex): int {
     return count($this->getElementsForPage($pageIndex));
-  }
-
-  /**
-   * @param int $pageIndex
-   * @return array
-   */
-  public function getElementsForPage(int $pageIndex): array {
-    $return = [];
-
-    // Basic logic to return the elements for given page
-    $firstElement = $pageIndex * $this->elementsPerPage;
-    $lastElement = $firstElement + $this->elementsPerPage;
-    if ($lastElement > $this->getTotalElementsCount()) {
-      $lastElement = $this->getTotalElementsCount();
-    }
-    for ($i = $firstElement; $i < $lastElement; $i++) {
-      $return[] = $this->elements[$i];
-    }
-
-    return $return;
   }
 
   /**
